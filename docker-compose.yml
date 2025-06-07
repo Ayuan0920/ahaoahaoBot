@@ -1,18 +1,15 @@
-version: '3.8'
-
 services:
   # This is the Bot!
   bot:
     container_name: "ahao-bot"
     # build from the Dockerfile
-    image: ahao-bot:ahao
-    # ports to expose to your machine (and others) -
-    # again, overwrites the Dockerfile so you can run it on other ports locally if you choose.
-    # e.g: "port to access on your machine:port the container is exposing"
+    build:
+      context: .
+      dockerfile: Dockerfile
     ports:
       - "7414:7414"
     volumes:
-      - ./:/bot/
+      - ./:/app/
     env_file:
       - .env
     # 當容器停止時自動重啟（非永久錯誤）
