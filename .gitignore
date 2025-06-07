@@ -4,6 +4,7 @@
 __pycache__/           # 忽略 Python 暫存檔案
 *.pyc                  # 忽略 Python 編譯後的檔案
 *.zip
+gitcommand.txt
 =======
 # Byte-compiled / optimized / DLL files
 __pycache__/
