@@ -20,6 +20,7 @@ async def on_ready():
 
 keyword_gif = {
     ("阿豪", "豪", "聾", "聽不到", "喵夢", "ゆうてんじ", "にゃむ"): "https://cdn.discordapp.com/attachments/815052373398650882/1370278317231444059/1746770188455.gif",
+    ("臭海獺"): "https://media.discordapp.net/attachments/1308309865772482610/1380861440759693382/image-25.png",
     #"另一個關鍵字": "另一個GIF連結"  # 請替換成實際的 GIF 連結
 }
 
