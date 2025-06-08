@@ -1,10 +1,10 @@
 # ahaoahaoBot
 
-阿豪自動GIF機器人，根據關鍵字或指定用戶自動回覆GIF
+阿豪自動GIF機器人，根據關鍵字或指定用戶自動隨機回覆GIF
 
 ## Features / 功能
 
-    * **Keyword Trigger 關鍵字觸發**：當訊息含特定關鍵字（如 `阿豪`, `豪`, `喵夢`, `にゃむ` 等）時，自動回傳預設GIF連結。
+    * **Keyword Trigger 關鍵字觸發**：當訊息含特定關鍵字（如 `阿豪`, `豪`, `喵夢`, `にゃむ` 等）時，自動隨機回傳預設GIF連結。
     * **User Mention Trigger 指定用戶觸發**：標註特定用戶（指定ID）時，自動回傳其專屬GIF。
     * **Auto-delete Reply 自動回覆刪除**：原訊息刪除時，bot的回應也會自動被刪除。
     * 支援 Docker、以 .env 環境變數設定TOKEN。
