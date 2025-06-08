@@ -8,6 +8,7 @@
     * **User Mention Trigger 指定用戶觸發**：標註特定用戶（指定ID）時，自動回傳其專屬GIF。
     * **Auto-delete Reply 自動回覆刪除**：原訊息刪除時，bot的回應也會自動被刪除。
     * 支援 Docker、以 .env 環境變數設定TOKEN。
+    * 靜音回覆
 
 ## Setup / 使用教學
 
