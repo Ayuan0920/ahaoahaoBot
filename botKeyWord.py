@@ -22,8 +22,8 @@ async def on_ready():
 keyword_gif = {
     ("阿豪", "豪", "聾", "聽不到", "喵夢", "ゆうてんじ", "にゃむ"): [
         ("https://cdn.discordapp.com/attachments/815052373398650882/1370278317231444059/1746770188455.gif", 80),
-        ("https://cdn.discordapp.com/attachments/815052373398650882/1370278317231444059/1746770188455.gif", 8),
-        ("https://media.discordapp.net/attachments/1308309865772482610/1354821659458011347/ah.gif?ex=6846ecfe&is=68459b7e&hm=214091b0cd44bbcbcede57cab3a6cc606a86ad92189253d3228e0013c0533d0e&=&width=486&height=648", 8),
+        ("https://cdn.discordapp.com/attachments/1308309865772482610/1354821659458011347/ah.gif?ex=6846ecfe&is=68459b7e&hm=214091b0cd44bbcbcede57cab3a6cc606a86ad92189253d3228e0013c0533d0e", 8),
+        ("https://media.discordapp.net/attachments/1308309865772482610/1367777188992253992/trim.559F57BF-A43D-42FD-8513-83F9E6D88BAC-ezgif.com-video-to-gif-converter.gif?ex=684698c5&is=68454745&hm=d7dddcdb59ee6d7ee9fead51adfd14555703e7cd4a3f6dbdf4c17bb2fc566099&=&width=486&height=648", 8),
         ("https://media.discordapp.net/attachments/1159063923333529661/1377204364954959972/15-9_TW2-302098500_02_1.gif?ex=68469d83&is=68454c03&hm=9c050cef16278922f340becdd1645df1e8e48c59d97faadc5aa7fbf495e74ec0&=&width=926&height=597", 4),
     ],
     ("臭海獺"): [
