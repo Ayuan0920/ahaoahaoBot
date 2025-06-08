@@ -1,6 +1,7 @@
 # 導入Discord.py模組
 import discord
 import os
+import random
 from dotenv import load_dotenv
 
 # 載入 .env 檔案
@@ -19,8 +20,15 @@ async def on_ready():
     print(f"目前登入身份 --> {client.user}")
 
 keyword_gif = {
-    ("阿豪", "豪", "聾", "聽不到", "喵夢", "ゆうてんじ", "にゃむ"): "https://cdn.discordapp.com/attachments/815052373398650882/1370278317231444059/1746770188455.gif",
-    ("臭海獺"): "https://media.discordapp.net/attachments/1308309865772482610/1380861440759693382/image-25.png",
+    ("阿豪", "豪", "聾", "聽不到", "喵夢", "ゆうてんじ", "にゃむ"): [
+        ("https://cdn.discordapp.com/attachments/815052373398650882/1370278317231444059/1746770188455.gif", 80),
+        ("https://cdn.discordapp.com/attachments/815052373398650882/1370278317231444059/1746770188455.gif", 8),
+        ("https://media.discordapp.net/attachments/1308309865772482610/1354821659458011347/ah.gif?ex=6846ecfe&is=68459b7e&hm=214091b0cd44bbcbcede57cab3a6cc606a86ad92189253d3228e0013c0533d0e&=&width=486&height=648", 8),
+        ("https://media.discordapp.net/attachments/1159063923333529661/1377204364954959972/15-9_TW2-302098500_02_1.gif?ex=68469d83&is=68454c03&hm=9c050cef16278922f340becdd1645df1e8e48c59d97faadc5aa7fbf495e74ec0&=&width=926&height=597", 4),
+    ],
+    ("臭海獺"): [
+        ("https://media.discordapp.net/attachments/1308309865772482610/1380861440759693382/image-25.png", 100),
+    ],
     #"另一個關鍵字": "另一個GIF連結"  # 請替換成實際的 GIF 連結
 }
 
@@ -41,14 +49,16 @@ async def on_message(message):
         return
 
     # 檢查訊息中是否包含任何關鍵字
-    for keywords, gif_url in keyword_gif.items():
+    for keywords, gif_probabilities in keyword_gif.items():
         if isinstance(keywords, tuple):  # 如果關鍵字是元組
             if any(keyword in message.content for keyword in keywords):
+                gif_url = random.choices([url for url, prob in gif_probabilities], weights=[prob for url, prob in gif_probabilities], k=1)[0]
                 reply = await message.channel.send(gif_url)
                 message_replies[message.id] = reply.id  # 儲存原始訊息 ID 和回覆 ID
                 return  # 如果找到一個關鍵字就停止檢查
         else:  # 如果關鍵字是單個字串
             if keywords in message.content:
+                gif_url = random.choices([url for url, prob in gif_probabilities], weights=[prob for url, prob in gif_probabilities], k=1)[0]
                 reply = await message.channel.send(gif_url)
                 message_replies[message.id] = reply.id  # 儲存原始訊息 ID 和回覆 ID
                 return  # 如果找到一個關鍵字就停止檢查
