@@ -53,22 +53,18 @@ async def on_message(message):
         if isinstance(keywords, tuple):  # 如果關鍵字是元組
             if any(keyword in message.content for keyword in keywords):
                 gif_url = random.choices([url for url, prob in gif_probabilities], weights=[prob for url, prob in gif_probabilities], k=1)[0]
-                # 使用 reply 而不是 send，並加入 mention
-                reply = await message.reply(gif_url, silent=True)
-                message_replies[message.id] = reply.id  # 儲存原始訊息 ID 和回覆 ID
+                await message.channel.send(gif_url, silent=True)
                 return  # 如果找到一個關鍵字就停止檢查
         else:  # 如果關鍵字是單個字串
             if keywords in message.content:
                 gif_url = random.choices([url for url, prob in gif_probabilities], weights=[prob for url, prob in gif_probabilities], k=1)[0]
-                reply = await message.reply(gif_url, silent=True)
-                message_replies[message.id] = reply.id  # 儲存原始訊息 ID 和回覆 ID
+                await message.channel.send(gif_url, silent=True)
                 return  # 如果找到一個關鍵字就停止檢查
 
     for user in message.mentions:
         if user.id in target_users:
             gif_url = target_users[user.id]
-            gif_reply = await message.reply(gif_url, silent=True)
-            message_replies[message.id] = gif_reply.id
+            await message.channel.send(gif_url, silent=True)
             return  # 若要一次只回應一個人，這邊 return；若都回應，可移除
 
 @client.event
