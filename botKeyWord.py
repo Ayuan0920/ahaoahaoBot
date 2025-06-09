@@ -28,6 +28,7 @@ keyword_gif = {
     ],
     ("臭海獺"): [
         ("https://media.discordapp.net/attachments/1308309865772482610/1380861440759693382/image-25.png", 100),
+      # ("https://images-ext-1.discordapp.net/external/KqflxnMlIlpPiIjrL1PCULF_RgD3ssz5z24XmOLN4zU/https/media.tenor.com/DXn1Zdlu3HUAAAPo/ave-mujica-umiri.mp4", 50), # 可以也和我重修舊好嗎
     ],
     #"另一個關鍵字": "另一個GIF連結"  # 請替換成實際的 GIF 連結
 }
@@ -53,18 +54,21 @@ async def on_message(message):
         if isinstance(keywords, tuple):  # 如果關鍵字是元組
             if any(keyword in message.content for keyword in keywords):
                 gif_url = random.choices([url for url, prob in gif_probabilities], weights=[prob for url, prob in gif_probabilities], k=1)[0]
-                await message.channel.send(gif_url, silent=True)
+                reply = await message.channel.send(gif_url, silent=True)
+                message_replies[message.id] = reply.id
                 return  # 如果找到一個關鍵字就停止檢查
         else:  # 如果關鍵字是單個字串
             if keywords in message.content:
                 gif_url = random.choices([url for url, prob in gif_probabilities], weights=[prob for url, prob in gif_probabilities], k=1)[0]
-                await message.channel.send(gif_url, silent=True)
+                reply = await message.channel.send(gif_url, silent=True)
+                message_replies[message.id] = reply.id
                 return  # 如果找到一個關鍵字就停止檢查
 
     for user in message.mentions:
         if user.id in target_users:
             gif_url = target_users[user.id]
-            await message.channel.send(gif_url, silent=True)
+            reply = await message.channel.send(gif_url, silent=True)
+            message_replies[message.id] = reply.id
             return  # 若要一次只回應一個人，這邊 return；若都回應，可移除
 
 @client.event
