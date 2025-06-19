@@ -39,7 +39,7 @@ rules = [
         ]
     },
     {
-        "keyword_include": ["貓", "neko", "ねこ", "ネコ", "樂奈", "rana", "ranna", "らーな", "らあな", "ラーナ", "楽奈"],
+        "keyword_include": ["貓", "neko", "ねこ", "ネコ", "樂奈", "rana", "ranna", "らーな", "らあな", "ラーナ", "楽奈", "喵", "ニャー"],
         "keyword_exclude": ["貓娘", "nekopara", "ネコぱら", "ねこぱら", "ネコパラ", "三毛貓", "咪萪貓", "みけねこ", "mikeneko"],
         "reply_gif": [
             {"url": "https://img.senen.dev/raana_round.gif", "weight": 100},
