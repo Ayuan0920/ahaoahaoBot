@@ -45,6 +45,13 @@ rules = [
             {"url": "https://img.senen.dev/raana_round.gif", "weight": 100},
         ]
     },
+    {
+        "keyword_include": ["企鵝", "燈", "tomori", "ともり", "トモリ"],
+        "keyword_exclude": [],
+        "reply_gif": [
+            {"url": "https://img.senen.dev/tomori_penguin.gif", "weight": 100},
+        ]
+    },
     # ... 更多規則
 ]
 
